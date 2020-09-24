@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
         MSAppCenter.setLogLevel(MSLogLevel.verbose);
         // Crashes Delegate.
         MSCrashes.setDelegate(self)
-        MSAppCenter.start("e8ea40e1-9eb4-42f3-8ef4-0c19259e61ee", withServices : [MSAnalytics.self, MSCrashes.self]);
+        MSAppCenter.start("6893e130-4850-4bb8-b563-e5dde72d7c10", withServices : [MSAnalytics.self, MSCrashes.self]);
+        MSAppCenter.setLogUrl("https://in-integration.dev.avalanch.es");
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.locationManager.requestWhenInUseAuthorization()
