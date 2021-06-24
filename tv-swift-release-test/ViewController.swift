@@ -19,16 +19,31 @@ class ViewController: UIViewController {
     }
 
     @IBAction func event(_ sender: UIButton) {
-        MSAnalytics.trackEvent("event")
+        Analytics.trackEvent("\(UIDevice.current.name)")
     }
     
     
     @IBAction func eventwithproperties(_ sender: UIButton) {
-        MSAnalytics.trackEvent("eventwithproperties", withProperties: ["Category876" : "1245Music", "243.52" : "favorite.avi"])
+        let target = getSystemVersionInfo()
+        Analytics.trackEvent("\(UIDevice.current.name) with properties",
+                             withProperties:
+                                ["Category" : "Music",
+                                 "FileName" : "favorite.avi",
+                                 "DeviceInfo" : target])
     }
     
+    
     @IBAction func crash(_ sender: UIButton) {
-        MSCrashes.generateTestCrash()
+        Crashes.generateTestCrash()
+    }
+
+    
+    func getSystemVersionInfo() -> String {
+        let deviceName = UIDevice.current.name
+        let sysName = UIDevice.current.systemName
+        let sysVersion = UIDevice.current.systemVersion
+        let result = "DeviceName: \(deviceName), SystemName: \(sysName), SystemVersion: \(sysVersion)"
+        return result
     }
     
 }

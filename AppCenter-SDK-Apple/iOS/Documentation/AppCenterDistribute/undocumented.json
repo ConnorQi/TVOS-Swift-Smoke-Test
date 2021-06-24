@@ -1,37 +1,37 @@
 {
   "warnings": [
     {
-      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSDistribute.h",
-      "line": 14,
-      "symbol": "MSUpdateAction",
+      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSACDistribute.h",
+      "line": 24,
+      "symbol": "MSACUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSDistribute.h",
-      "line": 14,
-      "symbol": "MSUpdateAction",
+      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSACDistribute.h",
+      "line": 24,
+      "symbol": "MSACUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSDistribute.h",
-      "line": 27,
-      "symbol": "MSUpdateTrack",
+      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSACDistribute.h",
+      "line": 37,
+      "symbol": "MSACUpdateTrack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSDistribute.h",
-      "line": 27,
-      "symbol": "MSUpdateTrack",
+      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSACDistribute.h",
+      "line": 37,
+      "symbol": "MSACUpdateTrack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSDistributeDelegate.h",
-      "line": 8,
-      "symbol": "MSDistributeDelegate",
+      "file": "/Users/runner/work/1/s/AppCenter-SDK-Apple/iOS/AppCenterDistribute.framework/Headers/MSACDistributeDelegate.h",
+      "line": 17,
+      "symbol": "MSACDistributeDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     }

@@ -13,7 +13,7 @@ import AppCenterAnalytics;
 import AppCenterCrashes;
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CrashesDelegate, CLLocationManagerDelegate {
 
     private var locationManager: CLLocationManager = CLLocationManager()
     var window: UIWindow?
@@ -21,15 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        MSAppCenter.setLogLevel(MSLogLevel.verbose);
-        // Crashes Delegate.
-        MSCrashes.setDelegate(self)
-        MSAppCenter.start("6893e130-4850-4bb8-b563-e5dde72d7c10", withServices : [MSAnalytics.self, MSCrashes.self]);
-        MSAppCenter.setLogUrl("https://in-integration.dev.avalanch.es");
+        AppCenter.logLevel = .verbose
+        // Crashes Delegate
+        Crashes.delegate = self
+        AppCenter.start(withAppSecret: "2ace46ca-fadf-4f0f-9fd9-e530e58057eb", services : [Analytics.self, Crashes.self])
+        AppCenter.logUrl = "https://in-integration.dev.avalanch.es"
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.locationManager.requestWhenInUseAuthorization()
-        MSCrashes.setUserConfirmationHandler({ (errorReports: [MSErrorReport]) in
+        Crashes.userConfirmationHandler = ({ (errorReports: [ErrorReport]) in
             
             // Your code to present your UI to the user, e.g. an UIAlertController.
             let alertController = UIAlertController(title: "Sorry about that!",
@@ -37,15 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
                                                     preferredStyle:.alert)
             
             alertController.addAction(UIAlertAction(title: "Don't send", style: .cancel) {_ in
-                MSCrashes.notify(with: .dontSend)
+                Crashes.notify(with: .dontSend)
             })
             
             alertController.addAction(UIAlertAction(title: "Send", style: .default) {_ in
-                MSCrashes.notify(with: .send)
+                Crashes.notify(with: .send)
             })
             
             alertController.addAction(UIAlertAction(title: "Always send", style: .default) {_ in
-                MSCrashes.notify(with: .always)
+                Crashes.notify(with: .always)
             })
             
             // Show the alert controller.
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or S message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
@@ -79,22 +79,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
     
     
     // Crashes Delegate
-    func crashes(_ crashes: MSCrashes!, shouldProcessErrorReport errorReport: MSErrorReport!) -> Bool {
+    func crashes(_ crashes: Crashes, shouldProcess errorReport: ErrorReport) -> Bool {
         return true
     }
     
-    func crashes(_ crashes: MSCrashes!, willSend errorReport: MSErrorReport!) {
+    func crashes(_ crashes: Crashes, willSend errorReport: ErrorReport) {
     }
     
-    func crashes(_ crashes: MSCrashes!, didSucceedSending errorReport: MSErrorReport!) {
+    func crashes(_ crashes: Crashes, didSucceedSending errorReport: ErrorReport) {
     }
     
-    func crashes(_ crashes: MSCrashes!, didFailSending errorReport: MSErrorReport!, withError error: Error!) {
+    func crashes(_ crashes: Crashes, didFailSending errorReport: ErrorReport, withError error: Error?) {
     }
     
-    func attachments(with crashes: MSCrashes, for errorReport: MSErrorReport) -> [MSErrorAttachmentLog] {
-        let attachment1 = MSErrorAttachmentLog.attachment(withText: "Hello world!", filename: "hello.txt")
-        let attachment2 = MSErrorAttachmentLog.attachment(withBinary: "Fake image".data(using: String.Encoding.utf8), filename: nil, contentType: "image/jpeg")
+    func attachments(with crashes: Crashes, for errorReport: ErrorReport) -> [ErrorAttachmentLog]? {
+        let attachment1 = ErrorAttachmentLog.attachment(withText: "\(UIDevice.current.name)", filename: "hello.txt")
+        let attachment2 = ErrorAttachmentLog.attachment(withBinary: "Fake image".data(using: String.Encoding.utf8), filename: nil, contentType: "image/jpeg")
         return [attachment1!, attachment2!]
     }
     
@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
         let userLocation:CLLocation = locations[0] as CLLocation
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if error == nil {
-                MSAppCenter.setCountryCode(placemarks?.first?.isoCountryCode)
+                AppCenter.countryCode = placemarks?.first?.isoCountryCode ?? ""
             }
         }
     }
@@ -118,4 +118,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MSCrashesDelegate, CLLoca
     }
 
 }
-

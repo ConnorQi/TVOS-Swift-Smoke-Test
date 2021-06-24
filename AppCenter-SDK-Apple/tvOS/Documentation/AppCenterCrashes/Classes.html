@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AppCenterCrashes Docs</a> (83% documented)</p>
+        <p><a href="index.html">AppCenterCrashes Docs</a> (86% documented)</p>
         <p class="header-right"><a href="https://github.com/microsoft/appcenter-sdk-apple"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fdocs.microsoft.com%2Fappcenter%2Fsdk%2Fios%2Fdocsets%2FAppCenterCrashes.xml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -33,10 +33,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/MSErrorAttachmentLog.html">MSErrorAttachmentLog</a>
+                <a href="Classes/MSACErrorAttachmentLog.html">MSACErrorAttachmentLog</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/MSWrapperCrashesHelper.html">MSWrapperCrashesHelper</a>
+                <a href="Classes/MSACServiceAbstract.html">MSACServiceAbstract</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MSACWrapperCrashesHelper.html">MSACWrapperCrashesHelper</a>
               </li>
             </ul>
           </li>
@@ -44,10 +47,10 @@
             <a href="Enumerations.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/MSErrorLogSetting.html">MSErrorLogSetting</a>
+                <a href="Enums/MSACErrorLogSetting.html">MSACErrorLogSetting</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/MSUserConfirmation.html">MSUserConfirmation</a>
+                <a href="Enums/MSACUserConfirmation.html">MSACUserConfirmation</a>
               </li>
             </ul>
           </li>
@@ -55,7 +58,10 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/MSCrashHandlerSetupDelegate.html">MSCrashHandlerSetupDelegate</a>
+                <a href="Protocols/MSACCrashHandlerSetupDelegate.html">MSACCrashHandlerSetupDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/MSACService.html">MSACService</a>
               </li>
             </ul>
           </li>
@@ -63,7 +69,7 @@
             <a href="Type Definitions.html">Type Definitions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:MSCrashes.h@T@MSUserConfirmationHandler">MSUserConfirmationHandler</a>
+                <a href="Type%20Definitions.html#/c:MSACCrashes.h@T@MSACUserConfirmationHandler">MSACUserConfirmationHandler</a>
               </li>
             </ul>
           </li>
@@ -82,9 +88,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)MSErrorAttachmentLog"></a>
-                    <a name="//apple_ref/objc/Class/MSErrorAttachmentLog" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MSErrorAttachmentLog">MSErrorAttachmentLog</a>
+                    <a name="/c:objc(cs)MSACServiceAbstract"></a>
+                    <a name="//apple_ref/objc/Class/MSACServiceAbstract" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MSACServiceAbstract">MSACServiceAbstract</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -92,20 +98,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error attachment log.</p>
+                        <p>Abstraction of services common logic.
+This class is intended to be subclassed only not instantiated directly.</p>
 
-                        <a href="Classes/MSErrorAttachmentLog.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/MSACServiceAbstract.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MSErrorAttachmentLog</span> <span class="p">:</span> <span class="nc">MSAbstractLog</span></code></pre>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">MSACServiceAbstract</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/MSACService.html">MSACService</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MSErrorAttachmentLog</span> <span class="p">:</span> <span class="kt">MSAbstractLog</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ServiceAbstract</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Service</span></code></pre>
 
                         </div>
                       </div>
@@ -115,9 +123,43 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)MSWrapperCrashesHelper"></a>
-                    <a name="//apple_ref/objc/Class/MSWrapperCrashesHelper" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)MSWrapperCrashesHelper">MSWrapperCrashesHelper</a>
+                    <a name="/c:objc(cs)MSACErrorAttachmentLog"></a>
+                    <a name="//apple_ref/objc/Class/MSACErrorAttachmentLog" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MSACErrorAttachmentLog">MSACErrorAttachmentLog</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error attachment log.</p>
+
+                        <a href="Classes/MSACErrorAttachmentLog.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">MSACErrorAttachmentLog</span> <span class="p">:</span> <span class="nc">MSACAbstractLog</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ErrorAttachmentLog</span> <span class="p">:</span> <span class="kt">AbstractLog</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)MSACWrapperCrashesHelper"></a>
+                    <a name="//apple_ref/objc/Class/MSACWrapperCrashesHelper" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)MSACWrapperCrashesHelper">MSACWrapperCrashesHelper</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -127,18 +169,19 @@
                       <div class="abstract">
                         <p>This general class allows wrappers to supplement the Crashes SDK with their own behavior.</p>
 
-                        <a href="Classes/MSWrapperCrashesHelper.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/MSACWrapperCrashesHelper.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">MSWrapperCrashesHelper</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight objective_c"><code>
+<span class="k">@interface</span> <span class="nc">MSACWrapperCrashesHelper</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">MSWrapperCrashesHelper</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">WrapperCrashesHelper</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -150,8 +193,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="http://www.microsoft.com" target="_blank" rel="external">Microsoft Corp</a>. All rights reserved. (Last updated: 2020-09-15)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="http://www.microsoft.com" target="_blank" rel="external">Microsoft Corp</a>. All rights reserved. (Last updated: 2021-06-10)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

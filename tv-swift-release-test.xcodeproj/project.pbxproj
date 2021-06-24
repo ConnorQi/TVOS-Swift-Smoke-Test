@@ -14,11 +14,8 @@
 		4A7174FB23151EC100F13749 /* tv_swift_release_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7174FA23151EC100F13749 /* tv_swift_release_testTests.swift */; };
 		4A71750623151EC200F13749 /* tv_swift_release_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A71750523151EC200F13749 /* tv_swift_release_testUITests.swift */; };
 		9B4F5F7C24DD49DA00221C8F /* AppCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7924DD49DA00221C8F /* AppCenter.framework */; };
-		9B4F5F7D24DD49DA00221C8F /* AppCenter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7924DD49DA00221C8F /* AppCenter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4F5F7E24DD49DA00221C8F /* AppCenterCrashes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7A24DD49DA00221C8F /* AppCenterCrashes.framework */; };
-		9B4F5F7F24DD49DA00221C8F /* AppCenterCrashes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7A24DD49DA00221C8F /* AppCenterCrashes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4F5F8024DD49DA00221C8F /* AppCenterAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7B24DD49DA00221C8F /* AppCenterAnalytics.framework */; };
-		9B4F5F8124DD49DA00221C8F /* AppCenterAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4F5F7B24DD49DA00221C8F /* AppCenterAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,22 +34,6 @@
 			remoteInfo = "tv-swift-release-test";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9B4F5F8224DD49DA00221C8F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9B4F5F7D24DD49DA00221C8F /* AppCenter.framework in Embed Frameworks */,
-				9B4F5F8124DD49DA00221C8F /* AppCenterAnalytics.framework in Embed Frameworks */,
-				9B4F5F7F24DD49DA00221C8F /* AppCenterCrashes.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4A7174E523151EC000F13749 /* tv-swift-release-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tv-swift-release-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +152,6 @@
 				4A7174E123151EC000F13749 /* Sources */,
 				4A7174E223151EC000F13749 /* Frameworks */,
 				4A7174E323151EC000F13749 /* Resources */,
-				9B4F5F8224DD49DA00221C8F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,7 +205,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = bys;
 				TargetAttributes = {
 					4A7174E423151EC000F13749 = {
@@ -367,6 +347,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -427,6 +408,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
